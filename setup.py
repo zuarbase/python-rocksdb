@@ -15,7 +15,8 @@ extra_compile_args = [
 ]
 
 if platform.system() == 'Darwin':
-    extra_compile_args += ['-mmacosx-version-min=10.7', '-stdlib=libc++']
+    extra_compile_args += ['-mmacosx-version-min=10.9']
+    extra_link_args = ["-stdlib=libc++", "-mmacosx-version-min=10.9"]
 
 
 setup(
@@ -35,6 +36,7 @@ setup(
         'rocksdb._rocksdb',
         ['rocksdb/_rocksdb.pyx'],
         extra_compile_args=extra_compile_args,
+        extra_link_args=extra_link_args,
         language='c++',
         libraries=['rocksdb', 'snappy', 'bz2', 'z', 'lz4'],
     )],
