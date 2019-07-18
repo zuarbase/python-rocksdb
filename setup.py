@@ -13,6 +13,7 @@ extra_compile_args = [
     '-fno-strict-aliasing',
     '-fno-rtti',
 ]
+extra_link_args = []
 
 if platform.system() == 'Darwin':
     extra_compile_args += ['-mmacosx-version-min=10.9']
